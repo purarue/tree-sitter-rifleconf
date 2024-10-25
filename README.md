@@ -6,7 +6,7 @@ This successfully parses the default config, my config and anything else I can t
 
 This parses the config file into conditions/expressions, and highlights the buffer:
 
-![image](https://github.com/seanbreckenridge/tree-sitter-rifleconfig/assets/7804791/739bde0c-1907-41cc-a6ec-7cc3abf96dea)
+![image](https://github.com/purarue/tree-sitter-rifleconfig/assets/7804791/739bde0c-1907-41cc-a6ec-7cc3abf96dea)
 
 ### Neovim
 
@@ -16,7 +16,7 @@ Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), a
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.rifleconfig = {
     install_info = {
-        url = "https://github.com/seanbreckenridge/tree-sitter-rifleconfig",
+        url = "https://github.com/purarue/tree-sitter-rifleconfig",
         files = {"src/parser.c"},
         branch = "main"
     }
@@ -41,7 +41,7 @@ For syntax highlighting and `commenting` support, you can copy the files in `que
 
 ```lua
 {
-    'seanbreckenridge/tree-sitter-rifleconfig',
+    'purarue/tree-sitter-rifleconfig',
     ft = 'rifleconfig',
 }
 ```
