@@ -1,6 +1,6 @@
 VERSION := 0.0.1
 
-LANGSHORT := rifleconfig
+LANGSHORT := rifleconf
 LANGUAGE_NAME := tree-sitter-$(LANGSHORT)
 
 # repository

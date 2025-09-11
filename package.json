@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-rifleconfig",
+  "name": "tree-sitter-rifleconf",
   "version": "1.0.0",
   "description": "rifle (ranger file manager) grammar for tree-sitter",
   "main": "grammar.js",
@@ -34,8 +34,8 @@
   ],
   "tree-sitter": [
     {
-      "scope": "source.rifleconfig",
-      "injection-regex": "^rifleconfig$"
+      "scope": "source.rifleconf",
+      "injection-regex": "^rifleconf$"
     }
   ]
 }

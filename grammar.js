@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: "rifleconfig",
+  name: "rifleconf",
 
   extras: ($) => [$._spaces],
 

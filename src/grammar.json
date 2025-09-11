@@ -1,5 +1,6 @@
 {
-  "name": "rifleconfig",
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "rifleconf",
   "rules": {
     "source_file": {
       "type": "REPEAT",
@@ -448,5 +449,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
