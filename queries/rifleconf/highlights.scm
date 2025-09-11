@@ -1,5 +1,3 @@
-; extends
-
 (comment) @comment @spell
 
 [
@@ -15,9 +13,9 @@
 
 (condition_expression
   (binary_condition_expression
-    (binary_condition_identifier) @kw_name
+    (binary_condition_identifier) @keyword
     (identifier) @number)
-  (#eq? @kw_name "number"))
+  (#eq? @keyword "number"))
 
 (ask) @function.builtin
 
