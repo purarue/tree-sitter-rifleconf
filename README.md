@@ -10,20 +10,21 @@ This parses the config file into conditions/expressions, and highlights the buff
 
 ### Neovim
 
-Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), and then add this to your config:
+Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/blob/main) on the `main` branch [instructions here](https://github.com/nvim-treesitter/nvim-treesitter/tree/main?tab=readme-ov-file#installation):
+
+You can then either run `:TSInstall rifleconf` or add it to your `config`:
 
 ```lua
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.rifleconf = {
-    install_info = {
-        url = "https://github.com/purarue/tree-sitter-rifleconf",
-        files = {"src/parser.c"},
-        branch = "main"
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter").setup()
+            require("nvim-treesitter").install({ "rifleconf" }) -- no-ops if already installed
+        end,
     }
-}
-
--- then setup like normal...
--- require('nvim-treesitter.configs').setup({
 ```
 
 To automatically set the filetype to `rifleconf`:
@@ -31,28 +32,8 @@ To automatically set the filetype to `rifleconf`:
 - add `vim.filetype.add({filename = {['rifle.conf'] = 'rifleconf'}})` to your startup script
 - or set the modeline (`:help modeline`) by adding `# vim: ft=rifleconf` to the top of your config file.
 
-_close nvim and open your rifle.conf_
-
-- `:TSInstall rifleconf`
-- `:edit`
-- `:InspectTree`
-
-For syntax highlighting and `commenting` support, you can copy the files in `queries` and `after` to your `runtimepath`, or just install this repository with your plugin manager. E.g. for [`lazy`](https://github.com/folke/lazy.nvim):
+For `commenting` support, add the following to your config at `after/ftplugin/rifleconf.lua`:
 
 ```lua
-{
-    'purarue/tree-sitter-rifleconf',
-    ft = 'rifleconf',
-}
-```
-
-If you want to highlight the commands in each rule with the `bash` tree-sitter parser, `:TSInstall bash`, and then copy this into your `~/.config/nvim/queries/rifleconf/injections.scm`:
-
-```lisp
-; extends
-
-(command_list
-  (command) @injection.content
-  (#set! injection.include-children)
-  (#set! injection.language "bash"))
+vim.opt_local.commentstring = "# %s"
 ```
