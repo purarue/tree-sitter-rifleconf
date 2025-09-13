@@ -39,6 +39,36 @@ ext desktop, X, flag f = dex "$@"  # desktop files
 		(comment)))
 
 ===============
+Basic Negation
+===============
+
+ext mp3, !mime audio/midi = mpv -- "$@"
+
+---
+
+(source_file
+      (rule
+        (conditions
+          (condition_expression
+            (binary_condition_expression
+              (binary_condition_identifier)
+              (identifier)))
+          (condition_expression
+            (condition_negation)
+            (binary_condition_expression
+              (binary_condition_identifier)
+              (identifier))))
+        (command_list
+          (command
+            (word
+              (identifier))
+            (word
+              (identifier))
+            (word
+              (string))))))
+)
+
+===============
 Regex statements
 ===============
 
